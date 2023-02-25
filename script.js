@@ -57,11 +57,6 @@ switch (operacionSelected){
     
 }
 
-const guardarCorrectas = (correctasTotales) => {
-    const correctasEnJSON = JSON.stringify(correctasTotales)
-    const correctasEnLocalStorage = localStorage.setItem("correctas", correctasEnJSON)
-}
-
 $formulario.addEventListener("submit",(e)=>{
     e.preventDefault()
     console.log(typeof(parseInt($valorIngresado.value)))
@@ -71,12 +66,9 @@ $formulario.addEventListener("submit",(e)=>{
         console.log("operación exitosa loco!")
         $respuestasCorrectas.textContent ++
         $respuestasTotales.textContent ++
-        correctasTotales.push( $respuestasCorrectas)
         console.log(correctasTotales)
-        guardarCorrectas(correctasTotales)
         $formulario.reset()
-        location.reload()
-        cambiar()
+        
     }else if($valorIngresado.value === "") {
         $textoPagina.textContent = "Ingresa al menos un número!, sin miedo..."
         $textoPagina.style.background = "red"
