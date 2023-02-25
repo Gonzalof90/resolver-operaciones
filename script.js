@@ -76,20 +76,21 @@ $formulario.addEventListener("submit",(e)=>{
         console.log("ingrese un número al menos sin miedo...")
     }else  {
         console.log("casi....")
-        $textoPagina.textContent = "Casi loco!"
+        $textoPagina.textContent = "Casi loco... intenta nuevamente!"
         $textoPagina.style.background = "red"
         $respuestasIncorrectas.textContent ++
         $respuestasTotales.textContent ++
-        pintarNumeros()
         $formulario.reset()
     }
     
 })
 
 const pintarNumeros = () => {
-    $primerNumero.textContent = Math.floor(Math.random() * (100 - 1) + 1)
-    $segundoNumero.textContent = Math.floor(Math.random() * (100 - 1) + 1)
-    let operacionSelected = operaciones[Math.floor(Math.random() * (4 - 0) + 0)]
+    const numero1 = Math.floor(Math.random() * (100 - 1) + 1)
+    const numero2 = Math.floor(Math.random() * (100 - 1) + 1)
+    $primerNumero.textContent = numero1
+$segundoNumero.textContent = numero2
+    operacionSelected = operaciones[Math.floor(Math.random() * (4 - 0) + 0)]
     $operacion.textContent = operacionSelected
     switch (operacionSelected){
         case suma:
@@ -114,5 +115,5 @@ const pintarNumeros = () => {
             console.log(typeof(resultadoCorrecto))
             break;
         
-    }
+    }   
 }
