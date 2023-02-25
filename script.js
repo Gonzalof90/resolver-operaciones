@@ -67,6 +67,7 @@ $formulario.addEventListener("submit",(e)=>{
         $respuestasCorrectas.textContent ++
         $respuestasTotales.textContent ++
         console.log(correctasTotales)
+        pintarNumeros()
         $formulario.reset()
         
     }else if($valorIngresado.value === "") {
@@ -79,7 +80,39 @@ $formulario.addEventListener("submit",(e)=>{
         $textoPagina.style.background = "red"
         $respuestasIncorrectas.textContent ++
         $respuestasTotales.textContent ++
+        pintarNumeros()
         $formulario.reset()
     }
     
 })
+
+const pintarNumeros = () => {
+    $primerNumero.textContent = Math.floor(Math.random() * (100 - 1) + 1)
+    $segundoNumero.textContent = Math.floor(Math.random() * (100 - 1) + 1)
+    let operacionSelected = operaciones[Math.floor(Math.random() * (4 - 0) + 0)]
+    $operacion.textContent = operacionSelected
+    switch (operacionSelected){
+        case suma:
+            resultadoCorrecto = (numero1 + numero2)
+            $resultado.textContent = resultadoCorrecto
+            console.log("resultado", resultadoCorrecto)
+            break;
+        case resta:
+            resultadoCorrecto = (numero1 - numero2)
+            $resultado.textContent = resultadoCorrecto
+            console.log("resultado", resultadoCorrecto)
+            break;
+        case multiplicacion:
+            resultadoCorrecto = (numero1 * numero2)
+            $resultado.textContent = resultadoCorrecto
+            console.log("resultado", resultadoCorrecto)
+            break;
+        case division:
+            resultadoCorrecto = (numero1 / numero2)
+            $resultado.textContent = resultadoCorrecto
+            console.log("resultado", resultadoCorrecto)
+            console.log(typeof(resultadoCorrecto))
+            break;
+        
+    }
+}
